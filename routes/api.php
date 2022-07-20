@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeAppliance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/home-appliances', [HomeAppliance::class, 'index']);
+Route::get('/home-appliances/{id}', [HomeAppliance::class, 'show']);
+Route::post('/home-appliances', [HomeAppliance::class, 'store']);
+Route::put('/home-appliances/{id}', [HomeAppliance::class, 'update']);
+Route::delete('/home-appliances/{id}', [HomeAppliance::class, 'destroy']);
